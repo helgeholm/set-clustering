@@ -2,7 +2,7 @@ var difflib = require('difflib');
 var cluster = require('./cluster');
 
 var data = require('./words');
-data = ['anne', 'anna', 'arne', 'bendrikk', 'bendrik', 'hendrik'];
+data = ['aa', 'ab', 'ac', 'bb', 'bc', 'bd', 'z', 'y'];
 
 function similarity(x, y) {
   return (new difflib.SequenceMatcher(null, x, y)).ratio();
@@ -17,7 +17,7 @@ var c = graph.connected(t, 100);
 console.log(threshold, c.length, c[0].nodes.length);
 */
 
-var c = cluster(data, similarity).group(2);
+var c = cluster(data, similarity).evenGroups(2);
 
 console.log(c);
 console.log(c.length);
