@@ -1,5 +1,10 @@
 __Set Clustering__ is a tool for grouping objects based on similarity.
 
+Give an array of arbitrary elements, and a function to determine how
+similar two elemts are.  The elements can then be divided into a
+number of groups to your liking.  The elements in each group will be
+more similar to each other than to elements of other groups.
+
 ## Short example, grouping a set of names:
 ```
 var difflib = require('difflib');
