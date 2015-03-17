@@ -5,6 +5,8 @@ similar two elemts are.  The elements can then be divided into a
 number of groups to your liking.  The elements in each group will be
 more similar to each other than to elements of other groups.
 
+(See end of README for algorithm description.)
+
 ## Short example, grouping a set of names:
 ```
 var difflib = require('difflib');
@@ -108,3 +110,20 @@ console.log(titles);
 //     'Exploring the universe via household chemicals',
 //     'Factual mistakes in Breaking Bad' ] ]
 ```
+
+## Algorithm
+
+Given `N` nodes, and asked to divide into `M` groups.
+
+1. Create a graph `G` of size `N` with all elements as nodes.
+2. Add `N*N` edges, where the similarity between each pair of nodes are the edges.
+3. Remove "weakest" edge.
+4. See if the graph consists of at least `M` disconnected subgraphs.
+5. If no, repeat from step 3.
+6. Divide `G` into `G_1`, `G_2` ... `G_M`, picking the largest subgraphs first.
+7. In the case of the graph having more than `M` disconnected subgraphs, absorb every orphan into the nearest (according to the original edge strength) subgraph from step 6.
+8. Return a list for each subgraph `G_1`, `G_2` ... `G_M`, where each list contains the nodes (original elements) of that subgraph.
+
+When picking representatives instead of groups, calculate the center node of each subgraph and return only that per subgraph.
+
+When picking even groups, start with representatives.  Create one subgraph for each representative, and "grow" them outwards evenly from each by picking the nearest neighboring free node until the entire graph is covered.
