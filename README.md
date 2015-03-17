@@ -19,7 +19,7 @@ For [Node.js](http://nodejs.org/), use [npm](http://npmjs.org/):
     npm install set-clustering
 
 ## Short example, grouping a set of names:
-```
+```javascript
 var difflib = require('difflib');
 var cluster = require('set-clustering');
 
@@ -42,14 +42,14 @@ var c = cluster(words, similarity);
 ```
 
 Divide into two groups:
-```
+```javascript
 console.log(c.groups(2));
 // > [ [ 'norbert', 'albert', 'bernard' ],
 // >   [ 'stephanie', 'stephen' ] ]
 ```
 
 Divide into three groups:
-```
+```javascript
 console.log(c.groups(3));
 // > [ [ 'norbert', 'albert' ],
 // >   [ 'bernard' ],
@@ -57,7 +57,7 @@ console.log(c.groups(3));
 ```
 
 ## Long example, grouping a set of tagged articles:
-```
+```javascript
 var cluster = require('set-clustering');
 var articles = [
   { title: "The Last Federation beginner strategy guide",
@@ -100,7 +100,7 @@ var c = cluster(articles, similarity);
 ```
 
 Divide into three groups and print titles:
-```
+```javascript
 var groups = c.evenGroups(3);
 
 var titles = groups.map(function(group) {
