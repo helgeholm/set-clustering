@@ -6,6 +6,12 @@
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
   },
+  "keywords": {
+    "algorithm",
+    "clustering",
+    "grouping",
+    "similarity"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/deestan/set-clustering.git"
