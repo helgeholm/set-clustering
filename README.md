@@ -10,7 +10,7 @@ var words = [
   'albert',
   'stephanie',
   'bernard',
-  'norbert',
+  'norbert'
 ];
 
 // Words similarity is based on how much of a word needs to be changed
