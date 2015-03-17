@@ -9,7 +9,7 @@ similar two elemts are.  The elements can then be divided into a
 number of groups to your liking.  The elements in each group will be
 more similar to each other than to elements of other groups.
 
-(See end of README for algorithm description.)
+(See end of README for [algorithm description](#algorithm).)
 
 <a name="download" />
 ## Download
