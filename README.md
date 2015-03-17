@@ -11,6 +11,13 @@ more similar to each other than to elements of other groups.
 
 (See end of README for algorithm description.)
 
+<a name="download" />
+## Download
+
+For [Node.js](http://nodejs.org/), use [npm](http://npmjs.org/):
+
+    npm install set-clustering
+
 ## Short example, grouping a set of names:
 ```
 var difflib = require('difflib');
@@ -115,7 +122,8 @@ console.log(titles);
 //     'Factual mistakes in Breaking Bad' ] ]
 ```
 
-## Algorithm
+<a name="algorithm" />
+# Algorithm
 
 Given `N` nodes, and asked to divide into `M` groups.
 
