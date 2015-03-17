@@ -122,6 +122,42 @@ console.log(titles);
 //     'Factual mistakes in Breaking Bad' ] ]
 ```
 
+<a name="documentation" />
+# Documentation
+
+## Constructor
+
+* [cluster](#cluster)
+
+## Instance Functions
+
+* [groups](#groups)
+* [representatives](#representatives)
+* [evenGroups](#evenGroups)
+
+<a name="cluster" />
+## cluster(elements, similarityFunction)
+
+Returns a new `cluster` instance, which is an object with 3 functions:
+
+* [groups](#groups)
+* [representatives](#representatives)
+* [evenGroups](#evenGroups)
+
+__Arguments__
+
+* elements - An array of elements you want to group.  The elements themselves can be anything.
+* similarityFunction - A function that takes any two elements and returns a number `>= 0`, where higher numbers mean "more similar" and lower numbers mean "less similar".
+
+__Example__
+
+```javascript
+var c = cluster(
+    [1, 2, 3, 23, 24, 25],
+    function quadraticDropOff(e1, e2) { return 1 / Math.Pow(e1 - e2, 2); }
+);
+```
+
 <a name="algorithm" />
 # Algorithm
 
