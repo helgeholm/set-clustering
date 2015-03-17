@@ -1,3 +1,7 @@
+# cluster.js
+
+[![NPM](https://nodei.co/npm/set-clustering.png)](https://nodei.co/npm/set-clustering/)
+
 __Set Clustering__ is a tool for grouping objects based on similarity.
 
 Give an array of arbitrary elements, and a function to determine how
