@@ -135,6 +135,8 @@ console.log(titles);
 * [representatives](#representatives)
 * [evenGroups](#evenGroups)
 
+-----------------------------------
+
 <a name="cluster" />
 ## cluster(elements, similarityFunction)
 
@@ -157,6 +159,97 @@ var c = cluster(
     function quadraticDropOff(e1, e2) { return 1 / Math.Pow(e1 - e2, 2); }
 );
 ```
+
+-----------------------------------
+
+<a name="groups" />
+## groups(howMany)
+
+The elements provided in the constructor are divided into `howMany` number of groups, and
+returned as an `Array` of `Array`s.
+
+__Arguments__
+
+* howMany - Number of groups to divide the elements into.  Must be `> 0`.
+
+__Example__
+
+```javascript
+var c = cluster(
+    [1, 2, 3, 4, 5, 23, 24, 25],
+    function quadraticDropOff(e1, e2) { return 1 / Math.Pow(e1 - e2, 2); }
+);
+
+var g = c.groups(2);
+
+console.log(g);
+
+// [ [1, 2, 3, 4, 5],
+     [23, 24, 25] ]
+```
+
+-----------------------------------
+
+
+<a name="representatives" />
+## representatives(howMany)
+
+Assuming the given elements can be divided into `howMany` number of groups, find the
+"center" member of each group and return them as an `Array`.
+
+__Arguments__
+
+* howMany - Number of representative elements to pick.  Must be `> 0`.
+
+__Example__
+
+```javascript
+var c = cluster(
+    [1, 2, 3, 4, 5, 23, 24, 25],
+    function quadraticDropOff(e1, e2) { return 1 / Math.Pow(e1 - e2, 2); }
+);
+
+var g = c.representatives(2);
+
+console.log(g);
+
+// [ 3, 24 ]
+```
+
+-----------------------------------
+
+<a name="evenGroups" />
+## evenGroups(howMany)
+
+Like [groups(howMany)](#groups) but strives to keep the groups as
+evenly sized as possible.  This means that the outliers of one large
+group can be absorbed into the most similar small group.
+
+Returns `howMany` number of groups, where the size of each group is at
+most `1` larger or smaller than any other group.  Return value is an
+`Array` or `Array`s.
+
+__Arguments__
+
+* howMany - Number of groups to divide the elements into.  Must be `> 0`.
+
+__Example__
+
+```javascript
+var c = cluster(
+    [1, 2, 3, 4, 5, 23, 24, 25],
+    function quadraticDropOff(e1, e2) { return 1 / Math.Pow(e1 - e2, 2); }
+);
+
+var g = c.evenGroups(2);
+
+console.log(g);
+
+// [ [1, 2, 3, 4],
+     [5, 23, 24, 25] ]
+```
+
+-----------------------------------
 
 <a name="algorithm" />
 # Algorithm
