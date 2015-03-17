@@ -4,7 +4,7 @@
   "description": "Tool for grouping objects by similarity.",
   "main": "cluster.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/deestan/set-clustering/issues"
   },
-  "homepage": "https://github.com/deestan/set-clustering"
+  "homepage": "https://github.com/deestan/set-clustering",
+  "devDependencies": {
+    "difflib": "^0.2.4",
+    "mocha": "^2.2.1"
+  }
 }
