@@ -1,6 +1,6 @@
 {
   "name": "set-clustering",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Tool for grouping objects by similarity.",
   "main": "cluster.js",
   "scripts": {
