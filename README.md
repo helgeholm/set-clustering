@@ -56,6 +56,14 @@ console.log(c.groups(3));
 // >   [ 'stephanie', 'stephen' ] ]
 ```
 
+Divide into any number of groups each with at least 50% similarity:
+```javascript
+console.log(c.similarGroups(0.5));
+// > [ [ 'norbert', 'albert' ],
+// >   [ 'bernard' ],
+// >   [ 'stephanie', 'stephen' ] ]
+```
+
 ## Long example, grouping a set of tagged articles:
 ```javascript
 var cluster = require('set-clustering');
@@ -134,6 +142,7 @@ console.log(titles);
 * [groups](#groups)
 * [representatives](#representatives)
 * [evenGroups](#evenGroups)
+* [similarGroups](#similarGroups)
 
 -----------------------------------
 
@@ -145,6 +154,7 @@ Returns a new `cluster` instance, which is an object with 3 functions:
 * [groups](#groups)
 * [representatives](#representatives)
 * [evenGroups](#evenGroups)
+* [similarGroups](#similarGroups)
 
 __Arguments__
 
@@ -247,6 +257,37 @@ console.log(g);
 
 // [ [1, 2, 3, 4],
 //   [5, 23, 24, 25] ]
+```
+
+-----------------------------------
+
+<a name="similarGroups" />
+## similarGroups(similarityIndex)
+
+Like [groups(howMany)](#groups) but useful when you care about how similar
+items in a group are instead of how many groups you end up with.
+
+Returns 1 to `n` number of groups, where the `n` is the number of elements
+in the cluster.  Return value is an `Array` of `Array`s.
+
+__Arguments__
+
+* similarityIndex - Similarity index to group the elements by.  Must be `>= 0` and `<= 1`.
+
+__Example__
+
+```javascript
+var c = cluster(
+    [1, 2, 3, 4, 5, 23, 24, 25],
+    function quadraticDropOff(e1, e2) { return 1 / Math.pow(e1 - e2, 2); }
+);
+
+var g = c.similarGroups(0.5);
+
+console.log(g);
+
+// [ [25, 24, 23],
+//   [5, 4, 3, 2, 1] ]
 ```
 
 -----------------------------------
