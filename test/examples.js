@@ -34,6 +34,17 @@ describe('set-clustering behaves according to examples', function() {
     ));
   });
 
+  it('divides names into similar groups, based on edit distance', function() {
+    var c = cluster(example1words, editDistancePercentage).similarGroups(0.5);
+
+    assert(deepUnorderedEquals(
+      c,
+      [ [ 'norbert', 'albert' ],
+        [ 'bernard' ],
+        [ 'stephanie', 'stephen' ] ]
+    ));
+  });
+
   it('divides articles into 5 groups, based on tag similarity', function() {
     var articles = [
       { title: "The Last Federation beginner strategy guide",

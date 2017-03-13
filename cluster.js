@@ -48,6 +48,11 @@ module.exports = function(set, similarity) {
     return roots;
   }
 
+  function similarGroups(similarityIndex) {
+    var subGraphs = graph.connected(g, similarityIndex);
+    return subGraphs;
+  }
+
   function evenGroups(numGroups, searchDepth_) {
     var roots = representatives(numGroups);
     var divisions = graph.growFromNuclei(g, roots);
@@ -68,6 +73,7 @@ module.exports = function(set, similarity) {
   return {
     groups: stripGraphs(groups),
     representatives: stripNodes(representatives),
+    similarGroups: stripGraphs(similarGroups),
     evenGroups: evenGroups
   };
 }

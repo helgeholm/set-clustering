@@ -36,6 +36,13 @@ describe('set-clustering can be used as described', function() {
     });
   });
 
+  it('can be asked for similar groups', function() {
+    assert.doesNotThrow(function() {
+      var c = cluster([1], function similarity() { return 0; });
+      c.similarGroups(0.5);
+    });
+  });
+
   it('can group 3 items into 3 groups', function() {
     assert.doesNotThrow(function() {
       var c = cluster([1, 2, 3], function similarity() { return 0; });
@@ -52,6 +59,16 @@ describe('set-clustering can be used as described', function() {
       assert.equal(g[0].length, 2);
       assert.equal(g[1].length, 2);
       assert.equal(g[2].length, 2);
+    });
+  });
+
+  it('can distribute 6 items into 2 similar groups', function () {
+    assert.doesNotThrow(function() {
+      var c = cluster([1, 2, 3, 4, 5, 6], function similarity(x, y) { return (x % 2 === y % 2) ? 1 : 0 });
+      var g = c.similarGroups(0.5);
+      assert.equal(g.length, 2);
+      assert.equal(g[0].length, 3);
+      assert.equal(g[1].length, 3);
     });
   });
 
