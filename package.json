@@ -1,6 +1,6 @@
 {
   "name": "set-clustering",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Tool for grouping objects by similarity.",
   "main": "cluster.js",
   "scripts": {
@@ -17,6 +17,13 @@
     "url": "https://github.com/deestan/set-clustering.git"
   },
   "author": "Helge Skogly Holm <helge.holm@gmail.com>",
+  "contributors": [
+    {
+      "name": "Silviu Burcea",
+      "email": "silviuburceadev@gmail.com",
+      "url": "https://github.com/silviuburceadev/"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/deestan/set-clustering/issues"
@@ -25,5 +32,8 @@
   "devDependencies": {
     "difflib": "^0.2.4",
     "mocha": "^2.2.1"
+  },
+  "engines": {
+    "node": ">=8"
   }
 }

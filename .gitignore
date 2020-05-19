@@ -1,1 +1,5 @@
+# IDE files
+*.iml
+
+# node files
 node_modules/
