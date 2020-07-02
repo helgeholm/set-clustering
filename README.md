@@ -9,9 +9,8 @@ similar two elemts are.  The elements can then be divided into a
 number of groups to your liking.  The elements in each group will be
 more similar to each other than to elements of other groups.
 
-(See end of README for [algorithm description](#algorithm).)
+(See end of README for [algorithm description](#algorithm))
 
-<a name="download" />
 ## Download
 
 For [Node.js](http://nodejs.org/), use [npm](http://npmjs.org/):
@@ -24,7 +23,7 @@ var difflib = require('difflib');
 var cluster = require('set-clustering');
 
 var words = [
-  'stephen',
+  'stephen', 
   'albert',
   'stephanie',
   'bernard',
@@ -130,14 +129,15 @@ console.log(titles);
 //     'Factual mistakes in Breaking Bad' ] ]
 ```
 
-<a name="documentation" />
+---
+
 # Documentation
 
-## Constructor
+### Constructor
 
 * [cluster](#cluster)
 
-## Instance Functions
+### Instance Functions
 
 * [groups](#groups)
 * [representatives](#representatives)
@@ -146,8 +146,7 @@ console.log(titles);
 
 -----------------------------------
 
-<a name="cluster" />
-## cluster(elements, similarityFunction)
+### cluster(elements, similarityFunction)
 
 Returns a new `cluster` instance, which is an object with 3 functions:
 
@@ -172,8 +171,7 @@ var c = cluster(
 
 -----------------------------------
 
-<a name="groups" />
-## groups(howMany)
+### groups(howMany)
 
 The elements provided in the constructor are divided into `howMany` number of groups, and
 returned as an `Array` of `Array`s.
@@ -201,8 +199,7 @@ console.log(g);
 -----------------------------------
 
 
-<a name="representatives" />
-## representatives(howMany)
+### representatives(howMany)
 
 Assuming the given elements can be divided into `howMany` number of groups, find the
 "center" member of each group and return them as an `Array`.
@@ -228,8 +225,7 @@ console.log(g);
 
 -----------------------------------
 
-<a name="evenGroups" />
-## evenGroups(howMany)
+### evenGroups(howMany)
 
 Like [groups(howMany)](#groups) but strives to keep the groups as
 evenly sized as possible.  This means that the outliers of one large
@@ -261,8 +257,7 @@ console.log(g);
 
 -----------------------------------
 
-<a name="similarGroups" />
-## similarGroups(similarityIndex)
+### similarGroups(similarityIndex)
 
 Like [groups(howMany)](#groups) but useful when you care about how similar
 items in a group are instead of how many groups you end up with.
@@ -292,7 +287,6 @@ console.log(g);
 
 -----------------------------------
 
-<a name="algorithm" />
 # Algorithm
 
 Given `N` nodes, and asked to divide into `M` groups.
