@@ -31,7 +31,7 @@
   "homepage": "https://github.com/deestan/set-clustering",
   "devDependencies": {
     "difflib": "^0.2.4",
-    "mocha": "^2.2.1"
+    "mocha": "^10.2.0"
   },
   "engines": {
     "node": ">=8"
